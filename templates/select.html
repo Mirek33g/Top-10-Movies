@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
+{% from "bootstrap/form.html" import render_form %}
+
 {% block title %}Select Movie{% endblock %}
 
 {% block content %}
 <div class="container">
     <h1 class="heading">Select Movie</h1>
   <p>
-    <a href="#"> MOVIE TITLE - MOVIE RELEASE DATE</a>
+    <a href="{{ url_for('home') }}"> MOVIE TITLE - MOVIE RELEASE DATE</a>
   </p>
+    {{ form.csrf_token }}
+    {{ render_form(form) }}
+    <div class="d-flex justify-content-between mt-3">
+      <a class="btn btn-primary" href="{{ url_for('home') }}">See all movies</a>
+    </div>
 
 </div>
+
 {% endblock %}
